@@ -44,41 +44,41 @@ const familyTree: FamilyMember[] = [
               },
             ],
           },
-          {
-            displayName: "Narayan Raorane",
-            name: "Narayan Raorane",
-            location: "",
-            children: [
-              {
-                displayName: "Parshuram Raorane",
-                name: "Parshuram Narayan Raorane",
-                location: "",
-                children: [
-                  {
-                    displayName: "Kiran Rane",
-                    name: "Kiran Parshuram Rane",
-                    location: "",
-                    children: [
-                      {
-                        displayName: "Mihir Rane",
-                        name: "Mihir Kiran Rane",
-                        location: "",
-                        children: [],
-                      },
-                      {
-                        displayName: "Keyuri Rane",
-                        name: "Keyuri Kiran Rane",
-                        location: "",
-                        children: [],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
         ],
       },
+	  {
+		displayName: "Narayan Raorane",
+		name: "Narayan Raorane",
+		location: "",
+		children: [
+		  {
+			displayName: "Parshuram Raorane",
+			name: "Parshuram Narayan Raorane",
+			location: "",
+			children: [
+			  {
+				displayName: "Kiran Rane",
+				name: "Kiran Parshuram Rane",
+				location: "",
+				children: [
+				  {
+					displayName: "Mihir Rane",
+					name: "Mihir Kiran Rane",
+					location: "",
+					children: [],
+				  },
+				  {
+					displayName: "Keyuri Rane",
+					name: "Keyuri Kiran Rane",
+					location: "",
+					children: [],
+				  },
+				],
+			  },
+			],
+		  },
+		],
+	  },
     ],
   },
 ];
