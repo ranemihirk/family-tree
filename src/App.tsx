@@ -89,7 +89,7 @@ const FamilyTree: React.FC<FamilyTreeProps> = ({
     console.log("childrenCount: ", childrenCount);
   }
   return (
-    <ul className=" list-none flex justify-evenly">
+    <ul className="pt-10 list-none flex justify-evenly">
       {familyMembers.map((item, idx) => (
         <li
           className={`pt-10 ${
