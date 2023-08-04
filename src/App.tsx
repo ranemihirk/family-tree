@@ -6,6 +6,7 @@ interface FamilyMember {
   displayName: string;
   name: string;
   location: string;
+  spouse: string;
   children: FamilyMember[];
 }
 
@@ -19,66 +20,38 @@ const familyTree: FamilyMember[] = [
     displayName: "Narayan Raorane",
     name: "Narayan Raorane",
     location: "",
+    spouse: "",
     children: [
       {
         displayName: "Parshuram Raorane",
         name: "Parshuram Narayan Raorane",
         location: "",
+        spouse: "Nirmala Raorane",
         children: [
           {
             displayName: "Kiran Rane",
             name: "Kiran Parshuram Rane",
             location: "",
+            spouse: "Krutika Rane",
             children: [
               {
                 displayName: "Mihir Rane",
                 name: "Mihir Kiran Rane",
                 location: "",
+                spouse: "",
                 children: [],
               },
               {
                 displayName: "Keyuri Rane",
                 name: "Keyuri Kiran Rane",
                 location: "",
+                spouse: "",
                 children: [],
               },
             ],
           },
         ],
       },
-	  {
-		displayName: "Narayan Raorane",
-		name: "Narayan Raorane",
-		location: "",
-		children: [
-		  {
-			displayName: "Parshuram Raorane",
-			name: "Parshuram Narayan Raorane",
-			location: "",
-			children: [
-			  {
-				displayName: "Kiran Rane",
-				name: "Kiran Parshuram Rane",
-				location: "",
-				children: [
-				  {
-					displayName: "Mihir Rane",
-					name: "Mihir Kiran Rane",
-					location: "",
-					children: [],
-				  },
-				  {
-					displayName: "Keyuri Rane",
-					name: "Keyuri Kiran Rane",
-					location: "",
-					children: [],
-				  },
-				],
-			  },
-			],
-		  },
-		],
-	  },
     ],
   },
 ];
@@ -87,13 +60,16 @@ const family = {
   displayName: "Parshuram Raorane",
   name: "Parshuram Narayan Raorane",
   location: "",
+  spouse: "",
   children: [],
 };
 
 export default function App(): JSX.Element {
   return (
-    <div className="App min-h-screen max-w-screen bg-slate-500 org-tree">
-      <h1 className="text-5xl">Raorane Family Tree</h1>
+    <div className="App min-h-screen max-w-screen bg-[#365c4f] text-[#c6a0ad] org-tree">
+      <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1]">
+      <h1 className="text-5xl font-bold tracking-wide">Raorane Family Tree</h1>
+      </div>
       <FamilyTree familyMembers={familyTree} childrenCount={1} />
     </div>
   );
@@ -126,16 +102,28 @@ const FamilyTree: React.FC<FamilyTreeProps> = ({
         >
           <div className="tooltip" data-tip={item.name}>
             <button
-              className={`p-4 inline-flex flex-col ${
+              className={`p-3 inline-flex ${
                 familyTree.length > 5 ? "text-xs" : "text-sm"
-              } rounded-lg bg-neutral-800 text-neutral-200`}
+              } rounded-xl bg-[#b4b9c7] text-[#25221b] shadow shadow-md shadow-[#707994]`}
             >
-              <img
-                className="rounded-full aspect-square w-12 m-auto"
-                src="https://i.pravatar.cc/80"
-                alt=""
-              />
-              {item.displayName}
+              <div className={`p-4 rounded-lg bg-[#d7dae1]`}>
+                <img
+                  className="rounded-full aspect-square w-12 m-auto"
+                  src="https://i.pravatar.cc/80"
+                  alt=""
+                />
+                <h5 className="font-bold">{item.displayName}</h5>
+              </div>
+              {item.spouse !== "" && (
+                <div className="ml-3 p-4 rounded-lg bg-[#d7dae1]">
+                  <img
+                    className="rounded-full aspect-square w-12 m-auto"
+                    src="https://i.pravatar.cc/80"
+                    alt=""
+                  />
+                  <h5 className="font-medium">{item.spouse}</h5>
+                </div>
+              )}
             </button>
           </div>
           {item.children.length > 0 && (

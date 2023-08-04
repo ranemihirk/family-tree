@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.tsx"],
   plugins: [require('@tailwindcss/forms'), require("daisyui")],
   daisyui: {
-    darkTheme: 'light',
+    darkTheme: 'dark',
   },
   important: true,
   darkMode: 'class',
@@ -12,6 +12,8 @@ module.exports = {
       colors:{
         'new-white': '#fffafa',
         'new-black': '#343434',
+        'new-bg': '#25221b',
+        'new-text': '#d7dae1'
       },
       height: {
 				inherit: 'inherit',

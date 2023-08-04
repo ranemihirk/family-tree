@@ -1,3 +1,7 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap'); */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto+Mono:wght@500&display=swap");
+
 .App {
   text-align: center;
 }
@@ -37,8 +41,16 @@
   }
 }
 
+h1 {
+  font-family: "Playfair Display", serif;
+}
+
+h5 {
+  font-family: "Roboto Mono", monospace;
+}
+
 .org-tree ul {
-position: relative;
+  position: relative;
 }
 
 .org-tree li {
@@ -46,22 +58,22 @@ position: relative;
   text-align: center;
   list-style-type: none;
   position: relative;
- }
+}
 
- .org-tree li::before,
+.org-tree li::before,
 .org-tree li::after {
   content: "";
   position: absolute;
   top: 0;
   right: 50%;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #d7dae1;
   width: 50%;
   height: 2.5rem;
 }
 .org-tree li::after {
   right: auto;
   left: 50%;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #d7dae1;
 }
 
 .org-tree li:only-child::after,
@@ -79,7 +91,7 @@ position: relative;
 }
 
 .org-tree li:last-child::before {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #d7dae1;
   border-radius: 0 5px 0 0;
   -webkit-border-radius: 0 5px 0 0;
   -moz-border-radius: 0 5px 0 0;
@@ -95,7 +107,7 @@ position: relative;
   position: absolute;
   top: 0;
   left: 50%;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #d7dae1;
   width: 0;
   height: 2.5rem;
 }
