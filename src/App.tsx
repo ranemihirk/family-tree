@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import {Helmet} from "react-helmet";
 
 interface FamilyMember {
   displayName: string;
@@ -67,6 +68,10 @@ const family = {
 export default function App(): JSX.Element {
   return (
     <div className="App min-h-screen max-w-screen bg-[#365c4f] text-[#c6a0ad] org-tree">
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Raorane Family Tree</title>
+            </Helmet>
       <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1]">
       <h1 className="text-5xl font-bold tracking-wide">Raorane Family Tree</h1>
       </div>
