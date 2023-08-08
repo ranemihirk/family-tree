@@ -143,66 +143,6 @@ const familyTree: FamilyMember[] = [
           },
         ],
       },
-      {
-        displayName: "Parshuram Raorane",
-        name: "Parshuram Narayan Raorane",
-        location: "",
-        spouse: "Nirmala Raorane",
-        children: [
-          {
-            displayName: "Kiran Rane",
-            name: "Kiran Parshuram Rane",
-            location: "Pune",
-            spouse: "Krutika Rane",
-            children: [
-              {
-                displayName: "Mihir Rane",
-                name: "Mihir Kiran Rane",
-                location: "Mira Road(E), Mumbai",
-                spouse: "",
-                children: [],
-              },
-              {
-                displayName: "Keyuri Rane",
-                name: "Keyuri Kiran Rane",
-                location: "Pune",
-                spouse: "",
-                children: [],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        displayName: "Parshuram Raorane",
-        name: "Parshuram Narayan Raorane",
-        location: "",
-        spouse: "Nirmala Raorane",
-        children: [
-          {
-            displayName: "Kiran Rane",
-            name: "Kiran Parshuram Rane",
-            location: "Pune",
-            spouse: "Krutika Rane",
-            children: [
-              {
-                displayName: "Mihir Rane",
-                name: "Mihir Kiran Rane",
-                location: "Mira Road(E), Mumbai",
-                spouse: "",
-                children: [],
-              },
-              {
-                displayName: "Keyuri Rane",
-                name: "Keyuri Kiran Rane",
-                location: "Pune",
-                spouse: "",
-                children: [],
-              },
-            ],
-          },
-        ],
-      },
     ],
   },
 ];
@@ -220,20 +160,17 @@ export default function App(): JSX.Element {
 
   const scrollToCenter = () => {
     if (!scrollContainerRef.current) return;
-    console.log("scrollToCenter");
     const container = scrollContainerRef.current;
-    console.log("container: ", container);
     const scrollWidth = container.scrollWidth;
-    console.log("scrollWidth: ", scrollWidth);
     const containerWidth = container.clientWidth;
-    console.log("containerWidth: ", containerWidth);
     const scrollToLeft = (scrollWidth - containerWidth) / 2;
-    console.log("scrollToLeft: ", scrollToLeft);
     container.scrollLeft = scrollToLeft;
   };
-  setTimeout(scrollToCenter, 5000);
+
+  setTimeout(scrollToCenter, 100);
+
   return (
-    <div className="App min-h-screen w-full text-[#c6a0ad] org-tree select-none">
+    <div className="App max-h-screen w-full text-[#c6a0ad] org-tree select-none">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Raorane Family Tree</title>
@@ -249,23 +186,30 @@ export default function App(): JSX.Element {
         <meta property="og:title" content="Raorane Family Tree"></meta>
         <meta property="og:url" content="https://raorane.vercel.app/"></meta>
       </Helmet>
-      <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1]">
+      <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1] sticky top-0 left-0 z-10">
         <h1 className="text-5xl font-bold tracking-wide">
           Raorane Family Tree
         </h1>
       </div>
-      <div className="bg-[#365c4f] pb-20 scroll-smooth" ref={scrollContainerRef} style={{
-          width: '100%', // Adjust container width as needed
-          height: '100%', // Adjust container height as needed
-          overflowX: 'scroll',
-          whiteSpace: 'nowrap',
-          textAlign: 'center',
-        }}>
-        <div className="" style={{
-            display: 'inline-block',
-            width: 'max-content',
-            height: '100%',
-          }}>
+      <div
+        className="bg-[#365c4f] pb-20 scroll-smooth"
+        ref={scrollContainerRef}
+        style={{
+          width: "100%", // Adjust container width as needed
+          height: "100%", // Adjust container height as needed
+          overflowX: "scroll",
+          whiteSpace: "nowrap",
+          textAlign: "center",
+        }}
+      >
+        <div
+          className=""
+          style={{
+            display: "inline-block",
+            width: "max-content",
+            height: "100%",
+          }}
+        >
           <FamilyTree familyMembers={familyTree} childrenCount={1} />
         </div>
       </div>
