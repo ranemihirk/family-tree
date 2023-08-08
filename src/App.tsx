@@ -32,20 +32,170 @@ const familyTree: FamilyMember[] = [
           {
             displayName: "Kiran Rane",
             name: "Kiran Parshuram Rane",
-            location: "",
+            location: "Pune",
             spouse: "Krutika Rane",
             children: [
               {
                 displayName: "Mihir Rane",
                 name: "Mihir Kiran Rane",
-                location: "",
+                location: "Mira Road(E), Mumbai",
                 spouse: "",
                 children: [],
               },
               {
                 displayName: "Keyuri Rane",
                 name: "Keyuri Kiran Rane",
-                location: "",
+                location: "Pune",
+                spouse: "",
+                children: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        displayName: "Parshuram Raorane",
+        name: "Parshuram Narayan Raorane",
+        location: "",
+        spouse: "Nirmala Raorane",
+        children: [
+          {
+            displayName: "Kiran Rane",
+            name: "Kiran Parshuram Rane",
+            location: "Pune",
+            spouse: "Krutika Rane",
+            children: [
+              {
+                displayName: "Mihir Rane",
+                name: "Mihir Kiran Rane",
+                location: "Mira Road(E), Mumbai",
+                spouse: "",
+                children: [],
+              },
+              {
+                displayName: "Keyuri Rane",
+                name: "Keyuri Kiran Rane",
+                location: "Pune",
+                spouse: "",
+                children: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        displayName: "Parshuram Raorane",
+        name: "Parshuram Narayan Raorane",
+        location: "",
+        spouse: "Nirmala Raorane",
+        children: [
+          {
+            displayName: "Kiran Rane",
+            name: "Kiran Parshuram Rane",
+            location: "Pune",
+            spouse: "Krutika Rane",
+            children: [
+              {
+                displayName: "Mihir Rane",
+                name: "Mihir Kiran Rane",
+                location: "Mira Road(E), Mumbai",
+                spouse: "",
+                children: [],
+              },
+              {
+                displayName: "Keyuri Rane",
+                name: "Keyuri Kiran Rane",
+                location: "Pune",
+                spouse: "",
+                children: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        displayName: "Parshuram Raorane",
+        name: "Parshuram Narayan Raorane",
+        location: "",
+        spouse: "Nirmala Raorane",
+        children: [
+          {
+            displayName: "Kiran Rane",
+            name: "Kiran Parshuram Rane",
+            location: "Pune",
+            spouse: "Krutika Rane",
+            children: [
+              {
+                displayName: "Mihir Rane",
+                name: "Mihir Kiran Rane",
+                location: "Mira Road(E), Mumbai",
+                spouse: "",
+                children: [],
+              },
+              {
+                displayName: "Keyuri Rane",
+                name: "Keyuri Kiran Rane",
+                location: "Pune",
+                spouse: "",
+                children: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        displayName: "Parshuram Raorane",
+        name: "Parshuram Narayan Raorane",
+        location: "",
+        spouse: "Nirmala Raorane",
+        children: [
+          {
+            displayName: "Kiran Rane",
+            name: "Kiran Parshuram Rane",
+            location: "Pune",
+            spouse: "Krutika Rane",
+            children: [
+              {
+                displayName: "Mihir Rane",
+                name: "Mihir Kiran Rane",
+                location: "Mira Road(E), Mumbai",
+                spouse: "",
+                children: [],
+              },
+              {
+                displayName: "Keyuri Rane",
+                name: "Keyuri Kiran Rane",
+                location: "Pune",
+                spouse: "",
+                children: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        displayName: "Parshuram Raorane",
+        name: "Parshuram Narayan Raorane",
+        location: "",
+        spouse: "Nirmala Raorane",
+        children: [
+          {
+            displayName: "Kiran Rane",
+            name: "Kiran Parshuram Rane",
+            location: "Pune",
+            spouse: "Krutika Rane",
+            children: [
+              {
+                displayName: "Mihir Rane",
+                name: "Mihir Kiran Rane",
+                location: "Mira Road(E), Mumbai",
+                spouse: "",
+                children: [],
+              },
+              {
+                displayName: "Keyuri Rane",
+                name: "Keyuri Kiran Rane",
+                location: "Pune",
                 spouse: "",
                 children: [],
               },
@@ -66,8 +216,24 @@ const family = {
 };
 
 export default function App(): JSX.Element {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCenter = () => {
+    if (!scrollContainerRef.current) return;
+    console.log("scrollToCenter");
+    const container = scrollContainerRef.current;
+    console.log("container: ", container);
+    const scrollWidth = container.scrollWidth;
+    console.log("scrollWidth: ", scrollWidth);
+    const containerWidth = container.clientWidth;
+    console.log("containerWidth: ", containerWidth);
+    const scrollToLeft = (scrollWidth - containerWidth) / 2;
+    console.log("scrollToLeft: ", scrollToLeft);
+    container.scrollLeft = scrollToLeft;
+  };
+  setTimeout(scrollToCenter, 5000);
   return (
-    <div className="App min-h-screen max-w-screen bg-[#365c4f] text-[#c6a0ad] org-tree">
+    <div className="App min-h-screen w-full text-[#c6a0ad] org-tree select-none">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Raorane Family Tree</title>
@@ -81,30 +247,40 @@ export default function App(): JSX.Element {
           content="raorane, raorane familt tree, raoranefamilytree"
         ></meta>
         <meta property="og:title" content="Raorane Family Tree"></meta>
-        <meta
-          property="og:url"
-          content="https://raorane.vercel.app/"
-        ></meta>
+        <meta property="og:url" content="https://raorane.vercel.app/"></meta>
       </Helmet>
       <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1]">
         <h1 className="text-5xl font-bold tracking-wide">
           Raorane Family Tree
         </h1>
       </div>
-      <FamilyTree familyMembers={familyTree} childrenCount={1} />
+      <div className="bg-[#365c4f] pb-20 scroll-smooth" ref={scrollContainerRef} style={{
+          width: '100%', // Adjust container width as needed
+          height: '100%', // Adjust container height as needed
+          overflowX: 'scroll',
+          whiteSpace: 'nowrap',
+          textAlign: 'center',
+        }}>
+        <div className="" style={{
+            display: 'inline-block',
+            width: 'max-content',
+            height: '100%',
+          }}>
+          <FamilyTree familyMembers={familyTree} childrenCount={1} />
+        </div>
+      </div>
     </div>
   );
 }
 
-const FamilyTree: React.FC<FamilyTreeProps> = ({
-  familyMembers,
-  childrenCount,
-}) => {
+const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
+  const { familyMembers, childrenCount } = props;
+
   return (
     <ul className="pt-10 list-none flex justify-evenly">
       {familyMembers.map((item, idx) => (
         <li
-          className={`${
+          className={`px-2 ${
             childrenCount > 1 ? "pt-10 w-1/" + childrenCount : "w-full"
           }`}
           key={idx}
@@ -114,26 +290,33 @@ const FamilyTree: React.FC<FamilyTreeProps> = ({
         >
           <div className="tooltip" data-tip={item.name}>
             <button
-              className={`p-3 inline-flex ${
+              className={`p-3 ${
                 familyTree.length > 5 ? "text-xs" : "text-sm"
               } rounded-xl bg-[#b4b9c7] text-[#25221b] shadow shadow-md shadow-[#707994]`}
             >
-              <div className={`p-4 rounded-lg bg-[#d7dae1]`}>
-                <img
-                  className="rounded-full aspect-square w-12 m-auto"
-                  src="https://i.pravatar.cc/80"
-                  alt=""
-                />
-                <h5 className="font-bold">{item.displayName}</h5>
-              </div>
-              {item.spouse !== "" && (
-                <div className="ml-3 p-4 rounded-lg bg-[#d7dae1]">
+              <div className="inline-flex">
+                <div className={`p-4 rounded-lg bg-[#d7dae1]`}>
                   <img
                     className="rounded-full aspect-square w-12 m-auto"
                     src="https://i.pravatar.cc/80"
                     alt=""
                   />
-                  <h5 className="font-medium">{item.spouse}</h5>
+                  <h5 className="font-extrabold">{item.displayName}</h5>
+                </div>
+                {item.spouse !== "" && (
+                  <div className="ml-3 p-4 rounded-lg bg-[#d7dae1]">
+                    <img
+                      className="rounded-full aspect-square w-12 m-auto"
+                      src="https://i.pravatar.cc/80"
+                      alt=""
+                    />
+                    <h5 className="font-medium">{item.spouse}</h5>
+                  </div>
+                )}
+              </div>
+              {item.location !== "" && (
+                <div className="mt-2">
+                  <h5 className="font-medium">{item.location}</h5>
                 </div>
               )}
             </button>
