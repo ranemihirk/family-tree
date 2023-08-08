@@ -170,7 +170,7 @@ export default function App(): JSX.Element {
   setTimeout(scrollToCenter, 100);
 
   return (
-    <div className="App max-h-screen w-full text-[#c6a0ad] org-tree select-none">
+    <div className="App max-h-screen w-full bg-[#d7dae1] text-[#c6a0ad] org-tree select-none">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Raorane Family Tree</title>
@@ -186,7 +186,14 @@ export default function App(): JSX.Element {
         <meta property="og:title" content="Raorane Family Tree"></meta>
         <meta property="og:url" content="https://raorane.vercel.app/"></meta>
       </Helmet>
-      <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1] sticky top-0 left-0 z-10">
+      <div
+        className="py-8 text-[#25221b] shadow shadow-[#d7dae1] sticky top-0 left-0 z-10"
+        style={{
+          background: "rgba(255, 255, 255, 0.2)", // Background with transparency
+          backdropFilter: "blur(10px)", // Apply the blur effect
+          textShadow: "2px 2px 4px rgba(37, 34, 27, 0.5)", // Optional text shadow
+        }}
+      >
         <h1 className="text-5xl font-bold tracking-wide">
           Raorane Family Tree
         </h1>
