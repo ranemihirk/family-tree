@@ -71,9 +71,20 @@ export default function App(): JSX.Element {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Raorane Family Tree</title>
-        <meta name="description" content="All things Raorane Family Tree, Our History, Activites, Contact and more."></meta>
+        <meta
+          name="description"
+          content="All things Raorane Family Tree, Our History, Activites, Contact and more."
+        ></meta>
         <meta name="author" content=""></meta>
-        <meta name="keywords" content="raorane, raorane familt tree, raoranefamilytree"></meta>
+        <meta
+          name="keywords"
+          content="raorane, raorane familt tree, raoranefamilytree"
+        ></meta>
+        <meta property="og:title" content="Raorane Family Tree"></meta>
+        <meta
+          property="og:url"
+          content="https://raorane.vercel.app/"
+        ></meta>
       </Helmet>
       <div className="py-8 text-[#25221b] bg-[#d7dae1] shadow shadow-[#d7dae1]">
         <h1 className="text-5xl font-bold tracking-wide">
