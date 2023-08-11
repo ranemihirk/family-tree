@@ -190,7 +190,7 @@ const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
   const { familyMembers, childrenCount } = props;
 
   return (
-    <ul className="pt-10 list-none flex justify-evenly w-fit">
+    <ul className="pt-10 list-none flex justify-evenly w-fit m-auto">
       {familyMembers.map((item, idx) => (
         <li
           className={`px-2 ${
