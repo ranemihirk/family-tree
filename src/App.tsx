@@ -54,91 +54,53 @@ const familyTree: FamilyMember[] = [
         ],
       },
       {
-        displayName: "Parshuram Raorane",
-        name: "Parshuram Narayan Raorane",
+        displayName: "Tukaram Raorane",
+        name: "Tukaram Narayan Raorane",
         location: "",
-        spouse: "Nirmala Raorane",
+        spouse: "Taramati Raorane",
         children: [
           {
-            displayName: "Kiran Rane",
-            name: "Kiran Parshuram Rane",
-            location: "Pune",
-            spouse: "Krutika Rane",
+            displayName: "Dilip Raorane",
+            name: "Dilip Tukaram Raorane",
+            location: "Virar",
+            spouse: "Geeta Raorane",
             children: [
               {
-                displayName: "Mihir Rane",
-                name: "Mihir Kiran Rane",
-                location: "Mira Road(E), Mumbai",
+                displayName: "Payal Raorane",
+                name: "Payal Dilip Raorane",
+                location: "Virar",
                 spouse: "",
                 children: [],
               },
               {
-                displayName: "Keyuri Rane",
-                name: "Keyuri Kiran Rane",
-                location: "Pune",
+                displayName: "Rudra Raorane",
+                name: "Rudra Dilip Raorane",
+                location: "Virar",
                 spouse: "",
                 children: [],
               },
             ],
           },
-        ],
-      },
-      {
-        displayName: "Parshuram Raorane",
-        name: "Parshuram Narayan Raorane",
-        location: "",
-        spouse: "Nirmala Raorane",
-        children: [
           {
-            displayName: "Kiran Rane",
-            name: "Kiran Parshuram Rane",
-            location: "Pune",
-            spouse: "Krutika Rane",
+            displayName: "Deepak Raorane",
+            name: "Deepak Tukaram Raorane",
+            location: "",
+            spouse: "Kaki",
             children: [
               {
-                displayName: "Mihir Rane",
-                name: "Mihir Kiran Rane",
-                location: "Mira Road(E), Mumbai",
+                displayName: "Sonal Raorane",
+                name: "Sonal Deepak Raorane",
+                location: "",
                 spouse: "",
                 children: [],
               },
               {
-                displayName: "Keyuri Rane",
-                name: "Keyuri Kiran Rane",
-                location: "Pune",
+                displayName: "Rahul Raorane",
+                name: "Rahul Deepak Raorane",
+                location: "",
                 spouse: "",
                 children: [],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        displayName: "Parshuram Raorane",
-        name: "Parshuram Narayan Raorane",
-        location: "",
-        spouse: "Nirmala Raorane",
-        children: [
-          {
-            displayName: "Kiran Rane",
-            name: "Kiran Parshuram Rane",
-            location: "Pune",
-            spouse: "Krutika Rane",
-            children: [
-              {
-                displayName: "Mihir Rane",
-                name: "Mihir Kiran Rane",
-                location: "Mira Road(E), Mumbai",
-                spouse: "",
-                children: [],
-              },
-              {
-                displayName: "Keyuri Rane",
-                name: "Keyuri Kiran Rane",
-                location: "Pune",
-                spouse: "",
-                children: [],
-              },
+              }
             ],
           },
         ],
@@ -148,8 +110,8 @@ const familyTree: FamilyMember[] = [
 ];
 
 const family = {
-  displayName: "Parshuram Raorane",
-  name: "Parshuram Narayan Raorane",
+  displayName: "",
+  name: "",
   location: "",
   spouse: "",
   children: [],
@@ -228,7 +190,7 @@ const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
   const { familyMembers, childrenCount } = props;
 
   return (
-    <ul className="pt-10 list-none flex justify-evenly">
+    <ul className="pt-10 list-none flex justify-evenly w-fit">
       {familyMembers.map((item, idx) => (
         <li
           className={`px-2 ${
