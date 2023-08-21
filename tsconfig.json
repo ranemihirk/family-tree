@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "../todo-list/src/index.js", "index.d.ts"],
+  "include": ["src", "./family-tree/src/App.tsx", "index.d.ts"],
 	"exclude": ["node_modules", "public"]
 }
