@@ -18,13 +18,21 @@ this.addEventListener('install', (event) => {
 })
 
 this.addEventListener('fetch', (event) => {
-   event.respondWith(
-    caches.match(event.request).then((result) => {
-        if(result){
-            // return result;
-            console.log('result: ', result);
-        }
-    })
-   )
+    if (!navigator.onLine) {
+        event.waitUntil(
+            this.registration.showNotification("Internet", {
+                body: "internet not working",
+            })
+        )
+        event.respondWith(
+            caches.match(event.request).then((resp) => {
+                if (resp) {
+                    return resp
+                }
+                let requestUrl = event.request.clone();
+                fetch(requestUrl)
+            })
+        )
+    }
 })
 
