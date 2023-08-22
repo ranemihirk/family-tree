@@ -2,8 +2,6 @@ const CACHE_NAME = "raorane-cache";
 const urlsToCache = [
     '/',
     '/index.html',
-    '/static/css/main.chunk.css',
-    '/static/js/main.chunk.js',
 ];
 
 this.addEventListener('install', event => {
