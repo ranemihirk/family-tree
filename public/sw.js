@@ -1,12 +1,9 @@
 const CACHE_NAME = "raorane-cache";
 const urlsToCache = [
-    '/static/js/bundle.js',
-    '/static/js/vendors-node_modules_react-router-dom_dist_index_js.chunk.js',
-    '/static/js/vendors-node_modules_fortawesome_free-solid-svg-icons_faBars_js-node_modules_fortawesome_free-aad28d.chunk.js',
-    '/static/js/CoreLayout.chunk.js',
-    '/static/js/Router.chunk.js',
-    '/index.html',
     '/',
+    '/index.html',
+    '/static/css/main.chunk.css',
+    '/static/js/main.chunk.js',
 ];
 
 this.addEventListener('install', event => {
