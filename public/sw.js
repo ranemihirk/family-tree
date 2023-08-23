@@ -1,13 +1,20 @@
 const CACHE_NAME = "raorane-cache";
-const urlsToCache = !navigator.onLine ? [
-    '/',
-    '/index.html',
-    '/static/js/bundle.js',
-    '/static/js/vendors-node_modules_react-router-dom_dist_index_js.chunk.js',
-    '/static/js/vendors-node_modules_fortawesome_free-solid-svg-icons_faBars_js-node_modules_fortawesome_free-aad28d.chunk.js',
-    '/static/js/Router.chunk.js',
-    '/static/js/CoreLayout.chunk.js',
-] : [
+
+// For localhost
+
+// const urlsToCache = [
+//     '/',
+//     '/index.html',
+//     '/static/js/bundle.js',
+//     '/static/js/vendors-node_modules_react-router-dom_dist_index_js.chunk.js',
+//     '/static/js/vendors-node_modules_fortawesome_free-solid-svg-icons_faBars_js-node_modules_fortawesome_free-aad28d.chunk.js',
+//     '/static/js/Router.chunk.js',
+//     '/static/js/CoreLayout.chunk.js',
+// ];
+
+// For live
+
+const urlsToCache = [
     '/',
     '/index.html',
     '/static/js/main.b4d0f366.js',
@@ -15,7 +22,7 @@ const urlsToCache = !navigator.onLine ? [
     '/static/js/Router.25dd4ea0.chunk.js',
     '/static/js/602.a5b5d198.chunk.js',
     '/static/js/CoreLayout.a4df5cb2.chunk.js',
-];
+]
 
 this.addEventListener('install', event => {
     event.waitUntil(
