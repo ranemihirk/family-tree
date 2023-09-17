@@ -1,18 +1,24 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 interface FamilyMember {
   displayName: string;
   name: string;
   location: string;
   spouse: string;
+  dob: string;
   children: FamilyMember[];
 }
 
 interface FamilyTreeProps {
   familyMembers: FamilyMember[];
   childrenCount: number;
+  handlePopupClick: Function;
 }
 
 const familyTree: FamilyMember[] = [
@@ -21,24 +27,28 @@ const familyTree: FamilyMember[] = [
     name: "Narayan Raorane",
     location: "",
     spouse: "",
+    dob: "",
     children: [
       {
         displayName: "Parshuram Raorane",
         name: "Parshuram Narayan Raorane",
         location: "",
         spouse: "Nirmala Raorane",
+        dob: "",
         children: [
           {
             displayName: "Kiran Rane",
             name: "Kiran Parshuram Rane",
             location: "Pune",
             spouse: "Krutika Rane",
+            dob: "",
             children: [
               {
                 displayName: "Mihir Rane",
                 name: "Mihir Kiran Rane",
                 location: "Mira Road(E), Mumbai",
                 spouse: "",
+                dob: "",
                 children: [],
               },
               {
@@ -46,6 +56,7 @@ const familyTree: FamilyMember[] = [
                 name: "Keyuri Kiran Rane",
                 location: "Pune",
                 spouse: "",
+                dob: "",
                 children: [],
               },
             ],
@@ -57,18 +68,21 @@ const familyTree: FamilyMember[] = [
         name: "Tukaram Narayan Raorane",
         location: "",
         spouse: "Taramati Raorane",
+        dob: "",
         children: [
           {
             displayName: "Dilip Raorane",
             name: "Dilip Tukaram Raorane",
             location: "Virar",
             spouse: "Geeta Raorane",
+            dob: "",
             children: [
               {
                 displayName: "Payal Raorane",
                 name: "Payal Dilip Raorane",
                 location: "Virar",
                 spouse: "",
+                dob: "",
                 children: [],
               },
               {
@@ -76,6 +90,7 @@ const familyTree: FamilyMember[] = [
                 name: "Rudra Dilip Raorane",
                 location: "Virar",
                 spouse: "",
+                dob: "",
                 children: [],
               },
             ],
@@ -85,12 +100,14 @@ const familyTree: FamilyMember[] = [
             name: "Deepak Tukaram Raorane",
             location: "",
             spouse: "Kaki",
+            dob: "",
             children: [
               {
                 displayName: "Sonal Raorane",
                 name: "Sonal Deepak Raorane",
                 location: "",
                 spouse: "",
+                dob: "",
                 children: [],
               },
               {
@@ -98,6 +115,7 @@ const familyTree: FamilyMember[] = [
                 name: "Rahul Deepak Raorane",
                 location: "",
                 spouse: "",
+                dob: "",
                 children: [],
               },
             ],
@@ -113,10 +131,28 @@ const family = {
   name: "",
   location: "",
   spouse: "",
+  dob: "",
   children: [],
 };
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function Tree(): JSX.Element {
+  const [open, setOpen] = React.useState(false);
+  const [popupData, setPopupData] = React.useState<FamilyMember>(family);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToCenter = () => {
@@ -130,6 +166,15 @@ export default function Tree(): JSX.Element {
 
   setTimeout(scrollToCenter, 100);
 
+  function handlePopupClick(item: string) {
+    setPopupData(JSON.parse(item));
+    setOpen(true);
+  }
+
+  useEffect(() => {
+    console.log("popupData: ", popupData);
+  }, [popupData]);
+
   return (
     <div
       className="bg-[#365c4f] pb-20 scroll-smooth"
@@ -142,6 +187,50 @@ export default function Tree(): JSX.Element {
         textAlign: "center",
       }}
     >
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div className="inline-flex items-center">
+            <img
+              src="https://i.pravatar.cc/80"
+              alt=""
+              className="rounded-full aspect-square w-12 m-auto"
+            />
+            <h2 className="ml-2">{popupData?.name}</h2>
+          </div>
+          <table>
+            <tbody>
+              <tr className={`${popupData?.dob === "" && "hidden"}`}>
+                <th>Date of Birth:</th>
+                <td>{popupData?.dob}</td>
+              </tr>
+              <tr className={`${popupData?.location === "" && "hidden"}`}>
+                <th>Location:</th>
+                <td>{popupData?.location}</td>
+              </tr>
+              <tr className={`${popupData?.spouse === "" && "hidden"}`}>
+                <th>Spouse:</th>
+                <td>{popupData?.spouse}</td>
+              </tr>
+              <tr className={`${popupData?.children.length < 1 && "hidden"}`}>
+                <th>Children:</th>
+                <td>{popupData?.children.length}</td>
+              </tr>
+              {popupData?.children.length > 0 &&
+                popupData?.children.map((item, idx) => (
+                  <tr key={idx}>
+                    <th></th>
+                    <td>{item.name}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </Box>
+      </Modal>
       <div
         className=""
         style={{
@@ -150,14 +239,18 @@ export default function Tree(): JSX.Element {
           height: "100%",
         }}
       >
-        <FamilyTree familyMembers={familyTree} childrenCount={1} />
+        <FamilyTree
+          familyMembers={familyTree}
+          childrenCount={1}
+          handlePopupClick={handlePopupClick}
+        />
       </div>
     </div>
   );
 }
 
 const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
-  const { familyMembers, childrenCount } = props;
+  const { familyMembers, childrenCount, handlePopupClick } = props;
 
   return (
     <ul className="pt-10 list-none flex justify-evenly w-fit m-auto">
@@ -172,10 +265,12 @@ const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
           data-newchildren={item.children.length}
         >
           <div className="tooltip" data-tip={item.name}>
-            <button
+            <Button
               className={`p-3 ${
                 familyTree.length > 5 ? "text-xs" : "text-sm"
-              } rounded-xl bg-[#b4b9c7] text-[#25221b] shadow shadow-md shadow-[#707994]`}
+              } rounded-xl bg-[#b4b9c7] text-[#25221b] shadow shadow-md shadow-[#707994] flex-col`}
+              data-name={JSON.stringify(item)}
+              onClick={() => handlePopupClick(JSON.stringify(item))}
             >
               <div className="inline-flex">
                 <div className={`p-4 rounded-lg bg-[#d7dae1]`}>
@@ -202,12 +297,13 @@ const FamilyTree: React.FC<FamilyTreeProps> = (props) => {
                   <h5 className="font-medium">{item.location}</h5>
                 </div>
               )}
-            </button>
+            </Button>
           </div>
           {item.children.length > 0 && (
             <FamilyTree
               familyMembers={item.children}
               childrenCount={item.children.length}
+              handlePopupClick={handlePopupClick}
             />
           )}
         </li>
@@ -288,6 +384,7 @@ const demo = () => {
 const newdemo: React.FC<FamilyTreeProps> = ({
   familyMembers,
   childrenCount,
+  handlePopupClick,
 }) => {
   return (
     <div className="mainTree">
@@ -315,6 +412,7 @@ const newdemo: React.FC<FamilyTreeProps> = ({
             <FamilyTree
               familyMembers={item.children}
               childrenCount={item.children.length}
+              handlePopupClick={handlePopupClick}
             />
           </li>
         ))}
