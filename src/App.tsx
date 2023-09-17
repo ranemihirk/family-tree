@@ -2,7 +2,6 @@ import "./App.css";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-// import swDev from './swDev';
 
 const Router = lazy(() => import(/* webpackChunkName: "Router" */ "./router"));
 
@@ -16,4 +15,3 @@ root.render(
 export default function App() {
   return <Router />;
 }
-// swDev();
