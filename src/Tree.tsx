@@ -194,41 +194,46 @@ export default function Tree(): JSX.Element {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="inline-flex items-center">
-            <img
-              src="https://i.pravatar.cc/80"
-              alt=""
-              className="rounded-full aspect-square w-12 m-auto"
-            />
-            <h2 className="ml-2">{popupData?.name}</h2>
+          <div className="relative">
+            <div className="inline-flex items-center">
+              <img
+                src="https://i.pravatar.cc/80"
+                alt=""
+                className="rounded-full aspect-square w-12 m-auto"
+              />
+              <h2 className="ml-2 text-xl text-black font-semibold">
+                {popupData?.name}
+              </h2>
+            </div>
+            <table>
+              <tbody>
+                <tr className={`${popupData?.dob === "" && "hidden"}`}>
+                  <th>Date of Birth:</th>
+                  <td>{popupData?.dob}</td>
+                </tr>
+                <tr className={`${popupData?.location === "" && "hidden"}`}>
+                  <th>Location:</th>
+                  <td>{popupData?.location}</td>
+                </tr>
+                <tr className={`${popupData?.spouse === "" && "hidden"}`}>
+                  <th>Spouse:</th>
+                  <td>{popupData?.spouse}</td>
+                </tr>
+                <tr className={`${popupData?.children.length < 1 && "hidden"}`}>
+                  <th>Children:</th>
+                  <td>{popupData?.children.length}</td>
+                </tr>
+                {popupData?.children.length > 0 &&
+                  popupData?.children.map((item, idx) => (
+                    <tr key={idx}>
+                      <th></th>
+                      <td>{item.name}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+            
           </div>
-          <table>
-            <tbody>
-              <tr className={`${popupData?.dob === "" && "hidden"}`}>
-                <th>Date of Birth:</th>
-                <td>{popupData?.dob}</td>
-              </tr>
-              <tr className={`${popupData?.location === "" && "hidden"}`}>
-                <th>Location:</th>
-                <td>{popupData?.location}</td>
-              </tr>
-              <tr className={`${popupData?.spouse === "" && "hidden"}`}>
-                <th>Spouse:</th>
-                <td>{popupData?.spouse}</td>
-              </tr>
-              <tr className={`${popupData?.children.length < 1 && "hidden"}`}>
-                <th>Children:</th>
-                <td>{popupData?.children.length}</td>
-              </tr>
-              {popupData?.children.length > 0 &&
-                popupData?.children.map((item, idx) => (
-                  <tr key={idx}>
-                    <th></th>
-                    <td>{item.name}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
         </Box>
       </Modal>
       <div
